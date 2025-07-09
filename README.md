@@ -10,11 +10,15 @@
 2. **Generate SSH key for GitHub**
    ```bash
    ssh-keygen -t ed25519 -C "gustavorangel91@gmail.com" -f ~/.ssh/<hostname>
+   ssh-keygen -t ed25519 -C "gustavorangel91@gmail.com" -f ~/.ssh/ggrangel-git-signing
    eval "$(ssh-agent -s)"
    ssh-add ~/.ssh/<hostname>
+   ssh-add ~/.ssh/ggrangel-git-signing
    cat ~/.ssh/<hostname>.pub
+   cat ~/.ssh/ggrangel-git-signing.pub
    ```
-   Copy output and add to GitHub: Settings > SSH Keys
+
+   Copy outputs and add to GitHub authentication and signing keys.
 
 3. **Switch to SSH remote**
    ```bash
@@ -39,3 +43,4 @@
 
 **Notes**:
 1. To push changes from /etc/nixos, use `sudo -E git push` (the -E flag preserves the SSH agent that the sudo user doesn't have access to)
+
