@@ -36,6 +36,11 @@
    home-manager switch
    ```
 
+6. **ZSH config location**
+   ```bash
+   echo "ZDOTDIR=$HOME/.config/zsh"
+   ```
+
 6. **Reboot**
    ```bash
    sudo reboot
