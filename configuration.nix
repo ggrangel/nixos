@@ -101,7 +101,12 @@
     lidSwitchExternalPower = "ignore";
   };
 
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+    interactiveShellInit = ''
+      export ZDOTDIR=$HOME/.config/zsh
+    '';
+  };
   users.users.ggrangel.shell = pkgs.zsh;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
