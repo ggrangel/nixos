@@ -98,11 +98,17 @@
   virtualisation.docker.enable = true;
 
   services.logind = {
-    lidSwitch = "suspend";
     lidSwitchExternalPower = "ignore";
   };
 
   programs.zsh.enable = true;
   users.users.ggrangel.shell = pkgs.zsh;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
+  nix.settings.auto-optimise-store = true;
 }
