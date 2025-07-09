@@ -10,6 +10,8 @@
 2. **Generate SSH key for GitHub**
    ```bash
    ssh-keygen -t ed25519 -C "gustavorangel91@gmail.com" -f ~/.ssh/<hostname>
+   eval "$(ssh-agent -s)"
+   ssh-add ~/.ssh/<hostname>
    cat ~/.ssh/<hostname>.pub
    ```
    Copy output and add to GitHub: Settings > SSH Keys
@@ -34,3 +36,6 @@
    ```bash
    sudo reboot
    ```
+
+**Notes**:
+1. To push changes from /etc/nixos, use `sudo -E git push` (the -E flag preserves the SSH agent that the sudo user doesn't have access to)
